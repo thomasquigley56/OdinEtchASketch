@@ -10,7 +10,8 @@ for(let i = 0; i < 16; i++){
         horiz[i][j] = document.createElement('div'); 
         horiz[i][j].classList.add('horiz');
         horiz[i][j].addEventListener('mouseover', function(){
-            horiz[i][j].classList.add("colored");
+            //horiz[i][j].classList.add("colored");
+            horiz[i][j].style.backgroundColor = getRandomRGB();
         });
         vert[i].appendChild(horiz[i][j]);
     }
@@ -35,7 +36,8 @@ function newGrid(size){
             horiz[i][j] = document.createElement('div'); 
             horiz[i][j].classList.add('horiz');
             horiz[i][j].addEventListener('mouseover', function(){
-                horiz[i][j].classList.add("colored");
+                //horiz[i][j].classList.add("colored");
+                horiz[i][j].style.backgroundColor = getRandomRGB();
             });
             vert[i].appendChild(horiz[i][j]);
         }
@@ -47,4 +49,11 @@ function clearContainer(){
     while(container.firstChild){
         container.removeChild(container.firstChild);
     }
+}
+
+function getRandomRGB(){
+    c1 = Math.floor(Math.random()*256);
+    c2 = Math.floor(Math.random()*256);
+    c3 = Math.floor(Math.random()*256);
+    return(`rgb(${c1},${c2},${c3})`);
 }
